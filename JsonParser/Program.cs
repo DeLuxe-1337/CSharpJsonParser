@@ -19,12 +19,12 @@ namespace JsonParser
             Lexer lexer = new Lexer(src);
             System.Collections.Generic.List<Token> tok = lexer.GetTokens();
 
-            //foreach (Token t in tok)
-            //{
-            //    Console.WriteLine(t.ToString());
-            //}
+            foreach (Token t in tok)
+            {
+                Console.WriteLine(t.ToString());
+            }
 
-            //Console.WriteLine();
+            Console.WriteLine();
 
             Parser parser = new(tok);
             System.Collections.Generic.List<Node> nodes = parser.Parse();
