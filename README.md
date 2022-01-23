@@ -1,6 +1,8 @@
 # C#-Json-parser
 This will take JSON source and parse it to a C# object/class.
 
+NuGet package: https://www.nuget.org/packages/JsonParser/
+
 //Moved the repository
 
 <details><summary>Goals</summary>
