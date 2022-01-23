@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace JsonParser.Extensions
 {
@@ -12,7 +8,7 @@ namespace JsonParser.Extensions
         {
             StringBuilder sb = new(str);
 
-            foreach(var s in to_replace)
+            foreach (string s in to_replace)
             {
                 sb.Replace(s, replace);
             }

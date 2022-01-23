@@ -31,7 +31,7 @@ namespace JsonParser
 
             Console.WriteLine(nodes[0][0].Index("repo > url"));
 
-            foreach(var n in ((BlockNode)nodes[0]).nodes)
+            foreach (Node n in ((BlockNode)nodes[0]).nodes)
             {
                 Console.WriteLine($"Repo name: {n["repo"]["name"]}\n" +
                     $"Repo url: {n["repo"]["url"]}\n" +

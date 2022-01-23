@@ -6,14 +6,16 @@ namespace JsonParser.Parsing.Nodes
     {
         public Node this[string index]
         {
-            get {
-                Node node = this as Node;
+            get
+            {
+                Node node = this;
                 return NodeHelper.Index(node, index);
             }
         }
         public Node this[int index]
         {
-            get { 
+            get
+            {
                 BlockNode node = this as BlockNode;
 
                 return node.nodes[index];

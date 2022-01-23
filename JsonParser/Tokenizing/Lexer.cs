@@ -134,12 +134,14 @@ namespace JsonParser.Tokenizing
 
         private void Boolean()
         {
-            while (IsAlpha(Peek())) 
+            while (IsAlpha(Peek()))
+            {
                 Advance();
+            }
 
             string text = Source.Substring(Start, Current - Start);
 
-            switch(text)
+            switch (text)
             {
                 case "null":
                     {
@@ -194,7 +196,7 @@ namespace JsonParser.Tokenizing
                         {
                             Number();
                         }
-                        else if(IsAlpha(c))
+                        else if (IsAlpha(c))
                         {
                             Boolean();
                         }
