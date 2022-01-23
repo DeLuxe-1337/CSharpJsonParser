@@ -15,9 +15,11 @@ This will take JSON source and parse it to a C# object/class.
 - [x] Supports assignment
 - [x] Supports strings, numbers and booleans
 - [x] Supports nesting blocks, etc. 
-
 - [x] Faster than Newtonsoft
 - [ ] Same amount of features as Newtonsoft
+  
+Bugs to fix:
+- [ ] \\" makes a new string (simple as adding escape code support)
   
   </p>
 </details>
@@ -26,10 +28,10 @@ This will take JSON source and parse it to a C# object/class.
 
 | Change Logs |
 |-------------|
+| Added null type |
 | Added bools |
 | Added array things [] |
 | Added node indexing refer to example 1 |
-| Cleaned up node classes |
 
 Example 1:
 
@@ -37,6 +39,13 @@ Example 1:
 node[0]["Prices"]["Oranges"]["Price"]; //would return the price
 ````
  
+</details>
+
+<details><summary>Benchmarks</summary>
+ 
+Testing on a 2k line dataset: 
+  
+ ![image](https://user-images.githubusercontent.com/74394136/150664134-ceb532c3-c10a-4c90-8fa8-4792023d2f31.png)
 </details>
 
 <details><summary>Comparing Newtonsoft</summary>
