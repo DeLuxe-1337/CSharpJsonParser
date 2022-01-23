@@ -15,9 +15,11 @@ This will take JSON source and parse it to a C# object/class.
 - [x] Supports assignment
 - [x] Supports strings, numbers and booleans
 - [x] Supports nesting blocks, etc. 
-
 - [x] Faster than Newtonsoft
 - [ ] Same amount of features as Newtonsoft
+  
+Bugs to fix:
+- [ ] need to add escape code support to lexer
   
   </p>
 </details>
@@ -26,10 +28,10 @@ This will take JSON source and parse it to a C# object/class.
 
 | Change Logs |
 |-------------|
+| Added null type |
 | Added bools |
 | Added array things [] |
 | Added node indexing refer to example 1 |
-| Cleaned up node classes |
 
 Example 1:
 
