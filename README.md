@@ -41,6 +41,13 @@ node[0]["Prices"]["Oranges"]["Price"]; //would return the price
  
 </details>
 
+<details><summary>Benchmarks</summary>
+ 
+Testing on a 2k line dataset: 
+  
+ ![image](https://user-images.githubusercontent.com/74394136/150664134-ceb532c3-c10a-4c90-8fa8-4792023d2f31.png)
+</details>
+
 <details><summary>Comparing Newtonsoft</summary>
 <p>
 
