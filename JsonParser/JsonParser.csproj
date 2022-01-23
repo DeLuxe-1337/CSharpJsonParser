@@ -1,8 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <TargetFramework>net5.0</TargetFramework>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Description>Simple Json Parser for C#</Description>
+    <PackageProjectUrl>https://github.com/DeLuxe1337001/CSharpJsonParser</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/DeLuxe1337001/CSharpJsonParser</RepositoryUrl>
+    <NeutralLanguage>en</NeutralLanguage>
+    <PackageId>$(AssemblyName)</PackageId>
+    <Product>C# Json Parser</Product>
+    <PackageTags>C#;Json</PackageTags>
+    <Copyright>None</Copyright>
+    <Company>DeLuxe</Company>
+    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <FileVersion>1.0.0.1</FileVersion>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
 </Project>

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace JsonParser
 {
-    internal class JApi
+    public class JApi
     {
         public static List<Node> Parse(string data)
         {
