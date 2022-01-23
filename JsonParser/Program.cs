@@ -5,6 +5,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
+using JsonParser.Extensions;
 
 namespace JsonParser
 {
@@ -28,7 +29,8 @@ namespace JsonParser
 
             foreach (Node n in ((BlockNode)nodes[0]["_embedded"]["episodes"]).nodes)
             {
-                Console.WriteLine($"Season {n["season"]} - episode '{n["name"]}' has a rating of {n["rating"]["average"]}");
+                Console.WriteLine($"Season {n["season"]} - episode {n["number"]} is named '{n["name"]}' has a rating of {n["rating"]["average"]}");
+                Console.WriteLine($"Episode summary: {n["summary"].ToString().MassReplace("", "<p>", "</p>")}");
             }
 
             sw.Stop();
