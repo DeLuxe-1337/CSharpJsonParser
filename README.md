@@ -19,7 +19,7 @@ This will take JSON source and parse it to a C# object/class.
 - [ ] Same amount of features as Newtonsoft
   
 Bugs to fix:
-- [ ] \" makes a new string (simple as adding escape code support)
+- [ ] \\" makes a new string (simple as adding escape code support)
   
   </p>
 </details>
