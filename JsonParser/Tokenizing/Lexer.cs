@@ -86,9 +86,7 @@ namespace JsonParser.Tokenizing
         }
         private void String()
         {
-            bool isEscapeCode = false;
-
-            while (Peek() != '"' && !End() && isEscapeCode == false)
+            while (Peek() != '"' && !End())
             {
                 switch (Peek())
                 {
