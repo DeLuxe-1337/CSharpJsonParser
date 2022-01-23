@@ -65,3 +65,5 @@ Newtonsoft:
 ![image](https://user-images.githubusercontent.com/74394136/150625260-a419b7a5-5cff-43fc-8d72-1b3ae5c15361.png)
     </p>
 </details>
+
+If you want some good JSON datasets I recommend: https://github.com/jdorfman/awesome-json-datasets
