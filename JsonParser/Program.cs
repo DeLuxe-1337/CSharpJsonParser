@@ -4,6 +4,7 @@ using JsonParser.Tokenizing;
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Net;
 
 namespace JsonParser
 {
@@ -11,31 +12,23 @@ namespace JsonParser
     {
         private static void Main(string[] args)
         {
+            Console.WriteLine("Type any show name to get statistics on it!");
+
+            string movie = Console.ReadLine();
+            movie = movie.Replace(" ", "+");
+
+            string src = new WebClient().DownloadString($"http://api.tvmaze.com/singlesearch/shows?q={movie}&embed=episodes");
+
             Stopwatch sw = new();
             sw.Start();
 
-            string src = File.ReadAllText(Environment.CurrentDirectory + "\\source.json");
+            var nodes = Api.Parse(src);
 
-            Lexer lexer = new Lexer(src);
-            System.Collections.Generic.List<Token> tok = lexer.GetTokens();
+            Console.WriteLine($"The show {nodes[0]["name"]} has a rating of {nodes[0]["rating"]["average"]}!");
 
-            //foreach (Token t in tok)
-            //{
-            //    Console.WriteLine(t.ToString());
-            //}
-
-            //Console.WriteLine();
-
-            Parser parser = new(tok);
-            System.Collections.Generic.List<Node> nodes = parser.Parse();
-
-            Console.WriteLine(nodes[0][0].Index("repo > url"));
-
-            foreach (Node n in ((BlockNode)nodes[0]).nodes)
+            foreach (Node n in ((BlockNode)nodes[0]["_embedded"]["episodes"]).nodes)
             {
-                Console.WriteLine($"Repo name: {n["repo"]["name"]}\n" +
-                    $"Repo url: {n["repo"]["url"]}\n" +
-                    $"Repo publicity: {n["public"]}");
+                Console.WriteLine($"Season {n["season"]} - episode '{n["name"]}' has a rating of {n["rating"]["average"]}");
             }
 
             sw.Stop();

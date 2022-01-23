@@ -111,7 +111,7 @@ namespace JsonParser.Tokenizing
 
             string value = Source.Substring(Start + 1, (Current - 1) - (Start + 1)); //remove quotes
 
-            value = value.Replace("\\\"", "\"");
+            value = value.Replace("\\", "");
 
             AddToken(TokenTypes.String, value);
         }
