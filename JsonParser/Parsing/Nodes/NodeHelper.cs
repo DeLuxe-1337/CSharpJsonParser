@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using JsonParser.Extensions;
+
 namespace JsonParser.Parsing.Nodes
 {
-    public class NodeHelper
+    public static class NodeHelper
     {
         private static Node SearchFor(Node node, string item)
         {
@@ -44,10 +46,9 @@ namespace JsonParser.Parsing.Nodes
 
             return null;
         }
-        public static Node Index(Node node, string index)
+        public static Node Index(this Node node, string index)
         {
-            index = index.Replace(" >", ">");
-            index = index.Replace("> ", ">");
+            index = index.MassReplace(">", " >", "> "); //To simply make it easier to split while allowing spaces in regular json words.
 
             string[] path = index.Split('>');
 

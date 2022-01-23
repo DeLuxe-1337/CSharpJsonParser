@@ -29,6 +29,8 @@ namespace JsonParser
             Parser parser = new(tok);
             System.Collections.Generic.List<Node> nodes = parser.Parse();
 
+            Console.WriteLine(nodes[0][0].Index("repo > url"));
+
             foreach(var n in ((BlockNode)nodes[0]).nodes)
             {
                 Console.WriteLine($"Repo name: {n["repo"]["name"]}\n" +
