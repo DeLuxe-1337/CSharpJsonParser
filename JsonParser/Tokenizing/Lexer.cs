@@ -86,11 +86,18 @@ namespace JsonParser.Tokenizing
         }
         private void String()
         {
-            while (Peek() != '"' && !End())
+            bool isEscapeCode = false;
+
+            while (Peek() != '"' && !End() && isEscapeCode == false)
             {
-                if (Peek() == '\n')
+                switch (Peek())
                 {
-                    Line++;
+                    case '\n':
+                        Line++;
+                        break;
+                    case '\\':
+                        Advance();
+                        break;
                 }
 
                 Advance();
@@ -104,9 +111,9 @@ namespace JsonParser.Tokenizing
 
             Advance();
 
-            string value = Source.Substring(Start, Current - Start);
+            string value = Source.Substring(Start + 1, (Current - 1) - (Start + 1)); //remove quotes
 
-            value = value.Trim('\"');
+            value = value.Replace("\\\"", "\"");
 
             AddToken(TokenTypes.String, value);
         }
