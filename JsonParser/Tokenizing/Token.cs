@@ -13,6 +13,7 @@
 
         False,
         True,
+        Null,
 
         End
     }

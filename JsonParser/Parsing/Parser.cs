@@ -39,7 +39,7 @@ namespace JsonParser.Parsing
 
                 Consume(BlockEnd, "Expected ending block '}'");
 
-                if (Peek().TokenType == Comma && Peek(1).TokenType == BlockStart)
+                if (Peek().TokenType == Comma && MatchNext(BlockStart, TokenTypes.String))
                 {
                     Consume(Comma, "Expected ',' if you want more children.");
                 }
@@ -64,7 +64,7 @@ namespace JsonParser.Parsing
         }
         private Node Values()
         {
-            if (Match(Number, False, True, TokenTypes.String))
+            if (Match(Number, False, True, Null, TokenTypes.String))
             {
                 object previous = Previous().Value;
 
@@ -82,7 +82,7 @@ namespace JsonParser.Parsing
         public void Error(string message)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"Parser error({message});\n\n{Tokens[Current]}");
+            Console.WriteLine($"Parser error({message});\nLine({Tokens[Current].Line});");
             Console.ResetColor();
 
             throw new Exception("Runtime error during parsing JSON.\n" + $"Parser error({message});");
@@ -111,7 +111,27 @@ namespace JsonParser.Parsing
 
             return false;
         }
+        private bool MatchNext(params TokenTypes[] types)
+        {
+            foreach (TokenTypes type in types)
+            {
+                if (Check(type, 1))
+                {
+                    return true;
+                }
+            }
 
+            return false;
+        }
+        private bool Check(TokenTypes type, int amount)
+        {
+            if (End())
+            {
+                return false;
+            }
+
+            return Peek(amount).TokenType == type;
+        }
         private bool Check(TokenTypes type)
         {
             if (End())

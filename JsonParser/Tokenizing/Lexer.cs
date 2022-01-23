@@ -20,10 +20,10 @@ namespace JsonParser.Tokenizing
         public void Error(string message)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"Lexer error({message});\nline({Line});");
+            Console.WriteLine($"Lexer error({message});\nline({Line});\\nSkipping and continuing to parsing.");
             Console.ResetColor();
 
-            throw new Exception("Runtime error during parsing JSON.\n" + $"Lexer error({message});\nline({Line});");
+            //throw new Exception("Runtime error during parsing JSON.\n" + $"Lexer error({message});\nline({Line});");
         }
         private bool End()
         {
@@ -141,6 +141,11 @@ namespace JsonParser.Tokenizing
 
             switch(text)
             {
+                case "null":
+                    {
+                        AddToken(TokenTypes.Null);
+                        break;
+                    }
                 case "false":
                     {
                         AddToken(TokenTypes.False, false);

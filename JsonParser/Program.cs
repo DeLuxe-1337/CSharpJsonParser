@@ -24,14 +24,16 @@ namespace JsonParser
             //    Console.WriteLine(t.ToString());
             //}
 
-            Console.WriteLine();
+            //Console.WriteLine();
 
             Parser parser = new(tok);
             System.Collections.Generic.List<Node> nodes = parser.Parse();
 
             foreach(var n in ((BlockNode)nodes[0]).nodes)
             {
-                Console.WriteLine(n["first_name"].ToString());
+                Console.WriteLine($"Repo name: {n["repo"]["name"]}\n" +
+                    $"Repo url: {n["repo"]["url"]}\n" +
+                    $"Repo publicity: {n["public"]}");
             }
 
             sw.Stop();
