@@ -1,0 +1,16 @@
+This is our JSON
+{
+  "Prices": {
+    "Oranges": {
+      "Price": 1.99,
+      "Quantity": 10
+    }
+  }
+}
+
+After lexing and parsing that you can use the node helper and easily index it!
+
+C#
+
+ValueNode node = nodes[0]["Prices"]["Oranges"]["Price"];
+Console.WriteLine(node.ToString());
