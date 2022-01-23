@@ -23,7 +23,7 @@ namespace JsonParser
             Stopwatch sw = new();
             sw.Start();
 
-            var nodes = Api.Parse(src);
+            var nodes = JApi.Parse(src);
 
             Console.WriteLine($"The show {nodes[0]["name"]} has a rating of {nodes[0]["rating"]["average"]}!");
 
