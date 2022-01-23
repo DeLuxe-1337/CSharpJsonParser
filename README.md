@@ -6,13 +6,12 @@ NuGet package: https://www.nuget.org/packages/JsonParser/
 //Moved the repository
 
 <details><summary>How to use JApi</summary>
-```
-  
-  var json = JApi.Parse("{\"Stock\": 100}");
 
-  Console.WriteLine(json[0]["Stock"]);
-  
-```
+  ````C#
+var json = JApi.Parse("{\"Stock\": 100}");
+
+Console.WriteLine(json[0]["Stock"]);
+````
   
 </details>
 
